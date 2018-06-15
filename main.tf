@@ -46,6 +46,7 @@ resource "google_compute_region_backend_service" "default" {
   region           = "${var.region}"
   protocol         = "${var.ip_protocol}"
   timeout_sec      = 10
+  connection_draining_timeout_sec = "${var.connection_draining_timeout_sec}"
   session_affinity = "${var.session_affinity}"
   backend          = ["${var.backends}"]
   health_checks    = ["${element(compact(concat(google_compute_health_check.tcp.*.self_link,google_compute_health_check.http.*.self_link)), 0)}"]
