@@ -37,6 +37,7 @@ variable subnetwork {
 variable "connection_draining_timeout_sec" {
   description = "Time for which instance will be drained (not accept new connections, but still work to finish started ones)"
 }
+
 variable network_project {
   description = "Name of the project for the network. Useful for shared VPC. Default is var.project."
   default     = ""
@@ -73,6 +74,7 @@ variable health_port {
 variable source_tags {
   description = "List of source tags for traffic between the internal load balancer."
   type        = "list"
+  default     = []
 }
 
 variable target_tags {

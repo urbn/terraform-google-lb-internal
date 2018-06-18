@@ -73,6 +73,7 @@ resource "google_compute_health_check" "http" {
 }
 
 resource "google_compute_firewall" "default-ilb-fw" {
+  count   = "${length(var.source_tags) != 0 ? 1 : 0 }"
   project = "${var.network_project == "" ? var.project : var.network_project}"
   name    = "${var.name}-ilb-fw"
   network = "${data.google_compute_network.network.name}"
