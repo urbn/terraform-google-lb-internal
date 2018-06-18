@@ -55,7 +55,7 @@ resource "google_compute_region_backend_service" "default" {
 resource "google_compute_health_check" "tcp" {
   count = "${var.http_health_check ? 0 : 1}"
   project = "${var.project}"
-  name    = "${var.name}-hc"
+  name    = "${var.name}-tcp-hc"
 
   tcp_health_check {
     port = "${var.health_port}"
@@ -65,7 +65,7 @@ resource "google_compute_health_check" "tcp" {
 resource "google_compute_health_check" "http" {
   count = "${var.http_health_check ? 1 : 0}"
   project = "${var.project}"
-  name    = "${var.name}-hc"
+  name    = "${var.name}-http-hc"
 
   http_health_check {
     port = "${var.health_port}"
