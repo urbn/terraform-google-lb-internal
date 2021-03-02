@@ -49,7 +49,7 @@ variable name {
 
 variable backends {
   description = "List of backends, should be a map of key-value pairs for each backend, mush have the 'group' key."
-  type        = "list"
+  type        = list
 }
 
 variable session_affinity {
@@ -59,7 +59,7 @@ variable session_affinity {
 
 variable ports {
   description = "List of ports range to forward to backend services. Max is 5."
-  type        = "list"
+  type        = list
 }
 
 variable http_health_check {
@@ -73,13 +73,13 @@ variable health_port {
 
 variable source_tags {
   description = "List of source tags for traffic between the internal load balancer."
-  type        = "list"
+  type        = list
   default     = []
 }
 
 variable target_tags {
   description = "List of target tags for traffic between the internal load balancer."
-  type        = "list"
+  type        = list
 }
 
 variable ip_address {
